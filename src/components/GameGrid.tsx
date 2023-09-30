@@ -3,9 +3,12 @@ import useGames from '../hooks/useGames'
 import GameCard from './GameCard'
 import GameCardSkelton from './GameCardSkelton'
 import GameCardContainer from './GameCardContainer'
-
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames();
+import { Genre } from '../hooks/useGenre'
+interface props{
+  selectedGerne:Genre|null
+}
+const GameGrid = ({selectedGerne}:props) => {
+  const { data, error, isLoading } = useGames(selectedGerne);
   const skeltonData = [1, 2, 3, 4, 5, 6, 7, 8]
   return (
     <>
