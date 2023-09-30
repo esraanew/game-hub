@@ -1,18 +1,13 @@
-import React from 'react'
-import useGenre from '../hooks/useGenre';
-import GenreCard from './GenreCard';
+import  useGenre from '../hooks/useGenre'
+import GenreCard from './GenreCard'
 
 const GenreList = () => {
-
-    const { genres, error, isLoading } = useGenre();
+  const { data } = useGenre()
   return (
-
     <>
-    {
-genres.map(genre=>{
-    return <GenreCard key={genre.id} genre={genre}/>
-})
-    }
+      {data.map(genre => {
+        return <GenreCard key={genre.id} genre={genre} />
+      })}
     </>
   )
 }
