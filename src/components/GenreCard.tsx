@@ -1,15 +1,22 @@
-import { HStack, Image, Text } from '@chakra-ui/react'
+import { HStack, Image, List, ListItem, Text } from '@chakra-ui/react'
 import { Genre } from '../hooks/useGenre'
+import getOptimizeImage from './OptimizeImage'
 
-interface props{
-    genre:Genre;
+interface props {
+  genre: Genre
 }
-const GenreCard = ({genre}:props) => {
+const GenreCard = ({ genre }: props) => {
   return (
-    <HStack marginY={2}>
-        <Image width='50px' src={genre.image_background} borderRadius='5px'/>
-        <Text>{genre.name}</Text>
-    </HStack>
+    <ListItem paddingY='5px'>
+      <HStack>
+        <Image
+          boxSize='32px'
+          src={getOptimizeImage(genre.image_background)}
+          borderRadius={8}
+        />
+        <Text fontSize='lg'>{genre.name}</Text>
+      </HStack>
+    </ListItem>
   )
 }
 
