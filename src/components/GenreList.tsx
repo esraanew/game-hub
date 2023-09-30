@@ -1,9 +1,12 @@
-import { List } from '@chakra-ui/react'
-import  useGenre from '../hooks/useGenre'
+import { List, Spinner } from '@chakra-ui/react'
+import useGenre from '../hooks/useGenre'
 import GenreCard from './GenreCard'
 
 const GenreList = () => {
-  const { data } = useGenre()
+  const { data, error, isLoading } = useGenre()
+
+  if (error) return
+  if (isLoading) return <Spinner />
   return (
     <List>
       {data.map(genre => {
