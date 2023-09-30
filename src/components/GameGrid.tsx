@@ -4,12 +4,12 @@ import GameCard from './GameCard'
 import GameCardSkelton from './GameCardSkelton'
 import GameCardContainer from './GameCardContainer'
 import { Genre } from '../hooks/useGenre'
+import { GameQuery } from '../App'
 interface props{
-  selectedGerne:Genre|null
-  selectedPlatform:Platform|null
+  gameQuery:GameQuery
 }
-const GameGrid = ({selectedGerne,selectedPlatform}:props) => {
-  const { data, error, isLoading } = useGames(selectedGerne,selectedPlatform);
+const GameGrid = ({gameQuery}:props) => {
+  const { data, error, isLoading } = useGames(gameQuery);
   const skeltonData = [1, 2, 3, 4, 5, 6, 7, 8]
   return (
     <>
