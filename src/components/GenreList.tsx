@@ -1,12 +1,20 @@
-import { Button, HStack, Image, Link, List, ListItem, Spinner, Text } from '@chakra-ui/react'
+import {
+  Button,
+  HStack,
+  Image,
+  List,
+  ListItem,
+  Spinner,
+  Text
+} from '@chakra-ui/react'
 import useGenre, { Genre } from '../hooks/useGenre'
-// import GenreCard from './GenreCard'
 import getOptimizeImage from './OptimizeImage'
 
 interface props {
-  onSelectedGerne: (genre:Genre) => void
+  onSelectedGerne: (genre: Genre) => void
+  selectedGerne: Genre | null
 }
-const GenreList = ({ onSelectedGerne }: props) => {
+const GenreList = ({ selectedGerne, onSelectedGerne }: props) => {
   const { data, error, isLoading } = useGenre()
 
   if (error) return null
@@ -22,12 +30,17 @@ const GenreList = ({ onSelectedGerne }: props) => {
                 src={getOptimizeImage(genre.image_background)}
                 borderRadius={8}
               />
-              <Button  onClick={()=>onSelectedGerne(genre)} variant='link' fontSize='lg'>{genre.name}</Button>
+              <Button
+                fontWeight={genre.id === selectedGerne?.id ? 'bold' : 'normal'}
+                onClick={() => onSelectedGerne(genre)}
+                variant='link'
+                fontSize='lg'
+              >
+                {genre.name}
+              </Button>
             </HStack>
           </ListItem>
         )
-
-        // <GenreCard onSelectedGerne={onSelectedGerne}key={genre.id} genre={genre} />
       })}
     </List>
   )
