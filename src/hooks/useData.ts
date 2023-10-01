@@ -31,7 +31,7 @@ const useData = <T>(
         .finally(() => {
           setIsLoading(false);
         });
-      // return () => controller.abort();
+      return () => controller.abort();
     },
     deps ? deps : []
   );
