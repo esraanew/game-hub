@@ -4,8 +4,6 @@ import {
   HStack,
   Heading,
   Image,
-  List,
-  Text
 } from '@chakra-ui/react'
 import { Game } from '../hooks/useGames'
 import PlatformIconList from './PlatformIconList'

@@ -5,8 +5,7 @@ import {
   Image,
   List,
   ListItem,
-  Spinner,
-  Text
+  Spinner
 } from '@chakra-ui/react'
 import useGenre, { Genre } from '../hooks/useGenre'
 import getOptimizeImage from './OptimizeImage'
@@ -22,7 +21,9 @@ const GenreList = ({ selectedGerne, onSelectedGerne }: props) => {
   if (isLoading) return <Spinner />
   return (
     <>
-      <Heading fontSize='xl' marginBottom={3}>Genres</Heading>
+      <Heading fontSize='xl' marginBottom={3}>
+        Genres
+      </Heading>
       <List>
         {data.map(genre => {
           return (
